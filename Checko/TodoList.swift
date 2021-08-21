@@ -26,6 +26,12 @@ class TodoList {
         return item
     }
     
+    func move(item: CheckListItem, to index: Int){
+        guard let currentIndex = todos.index(of: item) else { return }
+        todos.remove(at: currentIndex) // remove from previous loc
+        todos.insert(item, at: index) // add to new loc
+    }
+    
     func setRandomItem() -> CheckListItem {
         
         let item = CheckListItem()
