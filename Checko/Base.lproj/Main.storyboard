@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CheckListItem" id="7Ub-vk-EMQ">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="53"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CheckListItem" id="7Ub-vk-EMQ" customClass="CheckListTableViewCell" customModule="Checko" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="53.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Ub-vk-EMQ" id="cCZ-Y4-dgP">
-                                    <rect key="frame" x="0.0" y="0.0" width="356" height="53"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="356" height="53.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-s5-fvs">
-                                            <rect key="frame" x="41" y="16" width="41.5" height="21"/>
+                                            <rect key="frame" x="41" y="16" width="41.5" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -54,6 +54,10 @@
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aVN-s5-fvs" secondAttribute="trailing" constant="20" symbolic="YES" id="trR-i9-VEp"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkMarkLabel" destination="OxB-6l-VDn" id="u1C-IZ-zWV"/>
+                                    <outlet property="todoTextLabel" destination="aVN-s5-fvs" id="8cb-iu-HP8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

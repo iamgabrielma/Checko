@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6832C7A726D1181400BA4088 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6832C7A626D1181400BA4088 /* CheckListTableViewCell.swift */; };
 		68D63CA926CD1A0300C09806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D63CA826CD1A0300C09806 /* AppDelegate.swift */; };
 		68D63CAB26CD1A0300C09806 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D63CAA26CD1A0300C09806 /* SceneDelegate.swift */; };
 		68D63CAD26CD1A0300C09806 /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D63CAC26CD1A0300C09806 /* CheckListViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6832C7A626D1181400BA4088 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
 		68D63CA526CD1A0300C09806 /* Checko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D63CA826CD1A0300C09806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68D63CAA26CD1A0300C09806 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				68D63CA826CD1A0300C09806 /* AppDelegate.swift */,
 				68D63CAA26CD1A0300C09806 /* SceneDelegate.swift */,
 				68D63CAC26CD1A0300C09806 /* CheckListViewController.swift */,
+				6832C7A626D1181400BA4088 /* CheckListTableViewCell.swift */,
 				68D63CAE26CD1A0300C09806 /* Main.storyboard */,
 				68D63CB126CD1A0600C09806 /* Assets.xcassets */,
 				68D63CB326CD1A0600C09806 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6832C7A726D1181400BA4088 /* CheckListTableViewCell.swift in Sources */,
 				68D63CBF26CE07FA00C09806 /* TodoList.swift in Sources */,
 				68D63CAD26CD1A0300C09806 /* CheckListViewController.swift in Sources */,
 				68D63CC126D01D3E00C09806 /* ItemDetailViewController.swift in Sources */,
