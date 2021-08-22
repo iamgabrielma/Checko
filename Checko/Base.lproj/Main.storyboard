@@ -16,53 +16,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CheckListItem" id="7Ub-vk-EMQ" customClass="CheckListTableViewCell" customModule="Checko" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="53.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckListItem" id="7Ub-vk-EMQ" customClass="CheckListTableViewCell" customModule="Checko" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="71.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Ub-vk-EMQ" id="cCZ-Y4-dgP">
-                                    <rect key="frame" x="0.0" y="0.0" width="356" height="53.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-s5-fvs">
-                                            <rect key="frame" x="41" y="16" width="41.5" height="21.5"/>
+                                            <rect key="frame" x="41" y="16" width="41.5" height="39.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxB-6l-VDn">
-                                            <rect key="frame" x="0.0" y="16" width="33" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-cV-vry">
-                                            <rect key="frame" x="284" y="-2" width="83" height="56"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-cV-vry">
+                                            <rect key="frame" x="331" y="0.0" width="83" height="27"/>
                                             <state key="normal" title="Edit"/>
                                             <connections>
                                                 <segue destination="XCH-rZ-i6k" kind="show" id="swo-vC-Gmr"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-OJ-v2M">
-                                            <rect key="frame" x="211" y="13" width="51" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-OJ-v2M">
+                                            <rect key="frame" x="347" y="35" width="51" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="uAO-N3-1Kk"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hgd-OJ-v2M" secondAttribute="trailing" constant="-4" id="1IM-VE-3LL"/>
+                                        <constraint firstItem="kbL-cV-vry" firstAttribute="centerX" secondItem="hgd-OJ-v2M" secondAttribute="centerX" id="2fI-NW-jpr"/>
                                         <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" constant="41" id="473-wH-zJe"/>
-                                        <constraint firstItem="OxB-6l-VDn" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" id="5xa-D4-wb8"/>
+                                        <constraint firstItem="kbL-cV-vry" firstAttribute="top" secondItem="cCZ-Y4-dgP" secondAttribute="top" id="CGV-C2-Xdo"/>
                                         <constraint firstItem="aVN-s5-fvs" firstAttribute="top" secondItem="cCZ-Y4-dgP" secondAttribute="topMargin" constant="5" id="Hze-iU-JT1"/>
+                                        <constraint firstAttribute="trailing" secondItem="kbL-cV-vry" secondAttribute="trailing" id="LG2-cF-oEG"/>
+                                        <constraint firstItem="hgd-OJ-v2M" firstAttribute="top" secondItem="cCZ-Y4-dgP" secondAttribute="topMargin" constant="12" id="eiI-ng-52R"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="aVN-s5-fvs" secondAttribute="bottom" constant="5" id="iTS-uU-XCZ"/>
-                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="OxB-6l-VDn" secondAttribute="trailing" constant="8" symbolic="YES" id="ms7-kG-y15"/>
-                                        <constraint firstItem="OxB-6l-VDn" firstAttribute="firstBaseline" secondItem="aVN-s5-fvs" secondAttribute="firstBaseline" id="oSh-50-AFV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hgd-OJ-v2M" secondAttribute="bottom" constant="-0.5" id="lSN-a1-mCE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kbL-cV-vry" secondAttribute="bottom" constant="30" id="rlg-j6-Lst"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aVN-s5-fvs" secondAttribute="trailing" constant="20" symbolic="YES" id="trR-i9-VEp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkMarkLabel" destination="OxB-6l-VDn" id="u1C-IZ-zWV"/>
                                     <outlet property="itemTimestamp" destination="hgd-OJ-v2M" id="jdn-kz-gOs"/>
                                     <outlet property="todoTextLabel" destination="aVN-s5-fvs" id="8cb-iu-HP8"/>
                                 </connections>

@@ -7,18 +7,23 @@
 
 import Foundation
 
-final class CheckListItem: NSObject, Codable {
+final class CheckListItem: NSObject {
     
     //@IBOutlet weak var textField: UITextField!
     var text = ""
     var checked = false
-    let timestamp = NSDate().timeIntervalSince1970
+    let timeRemaining = 24
+    let timestamp = Date()
+    // Test to save this to UserDefaults:
+    var textAndRemainingTime: (String, Int) = ("", 0)
     
-//    init(){
-//        self.timestamp = NSDate().timeIntervalSince1970
+    
+    //let timestamp = NSDate().timeIntervalSince1970
+    //let twentyFour: Timer
+    
+//    func checkDiff(){
+//        
 //    }
-    
-    
     /// Description
     func toggleChecked() {
         checked = !checked
