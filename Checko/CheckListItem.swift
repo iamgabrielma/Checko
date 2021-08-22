@@ -7,12 +7,14 @@
 
 import Foundation
 
-class CheckListItem: NSObject {
+final class CheckListItem: NSObject {
     
     //@IBOutlet weak var textField: UITextField!
     var text = ""
     var checked = false
     
+    
+    /// Description
     func toggleChecked() {
         checked = !checked
     }

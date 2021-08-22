@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TodoList {
+final class TodoList {
 
     let rowItem0 = CheckListItem()
     var todos: [CheckListItem] = []

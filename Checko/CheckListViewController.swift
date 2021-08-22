@@ -7,11 +7,14 @@
 
 import UIKit
 
-class CheckListViewController: UITableViewController {
+/// <#Description#>
+final class CheckListViewController: UITableViewController {
     
     /// Our TodoList object. Holds all TodoItems
     var todoList: TodoList
     
+    /// Adds an item to our TODO list object
+    /// - Parameter sender: The "+" button on UI
     @IBAction func addItem(_ sender: Any) {
         
         let newRowIndex = todoList.todos.count
@@ -37,15 +40,19 @@ class CheckListViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editButtonItem
     }
-    
+
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         tableView.setEditing(tableView.isEditing, animated: true)
     }
-    
+    /// Overrides numberOfRowsInSection
+    /// - Returns: The number of rows in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.todos.count
     }
+    
+    /// Overrides cellForRowAt: Creates and configures an appropriate cell for the given index path.
+    /// - Returns: A cell, our CheckListTableViewCell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckListItem", for: indexPath)
@@ -56,6 +63,7 @@ class CheckListViewController: UITableViewController {
         
         return cell
     }
+    /// Overrides didSelectRowAt: Tells the delegate a row is selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath){
@@ -65,7 +73,7 @@ class CheckListViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-    
+    /// Overrides editingStyle
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         todoList.todos.remove(at: indexPath.row)
