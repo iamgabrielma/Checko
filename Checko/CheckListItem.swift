@@ -12,6 +12,11 @@ final class CheckListItem: NSObject, Codable {
     //@IBOutlet weak var textField: UITextField!
     var text = ""
     var checked = false
+    let timestamp = NSDate().timeIntervalSince1970
+    
+//    init(){
+//        self.timestamp = NSDate().timeIntervalSince1970
+//    }
     
     
     /// Description

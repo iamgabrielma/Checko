@@ -20,7 +20,7 @@ final class TodoList {
         todos.append(rowItem0)
         
         // Temporary DEBUG: Uncomment and execute to delete User Defaults:
-        // UserDefaults.resetStandardUserDefaults()
+        UserDefaults.resetStandardUserDefaults()
         
         // Initial data load from Userdefaults:
         // TODO: Move into a function.

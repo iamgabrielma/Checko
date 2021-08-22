@@ -43,6 +43,13 @@
                                                 <segue destination="XCH-rZ-i6k" kind="show" id="swo-vC-Gmr"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-OJ-v2M">
+                                            <rect key="frame" x="211" y="13" width="51" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" constant="41" id="473-wH-zJe"/>
@@ -56,6 +63,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="checkMarkLabel" destination="OxB-6l-VDn" id="u1C-IZ-zWV"/>
+                                    <outlet property="itemTimestamp" destination="hgd-OJ-v2M" id="jdn-kz-gOs"/>
                                     <outlet property="todoTextLabel" destination="aVN-s5-fvs" id="8cb-iu-HP8"/>
                                 </connections>
                             </tableViewCell>

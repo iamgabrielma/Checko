@@ -60,6 +60,7 @@ final class CheckListViewController: UITableViewController {
         
         configureText(cell: cell, with: item)
         configureCheckMark(cell: cell, with: item)
+        configureTimestamp(cell: cell, with: item)
         
         return cell
     }
@@ -124,7 +125,14 @@ final class CheckListViewController: UITableViewController {
         } else {
             checkMarkCell.checkMarkLabel.text = ""
         }
-        //item.toggleChecked()
+    }
+    
+    func configureTimestamp(cell: UITableViewCell, with item: CheckListItem){
+        
+        if let timestampedCell = cell as? CheckListTableViewCell {
+            timestampedCell.itemTimestamp.text = String(NSDate().timeIntervalSince1970)
+        }
+    
     }
 }
 
