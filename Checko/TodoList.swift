@@ -6,16 +6,30 @@
 //
 
 import Foundation
+//import UIKit
 
-class TodoList {
-
-    let rowItem0 = CheckListItem()
+final class TodoList {
+    
+    var rowItem0 = CheckListItem()
+    var test_rowItemFromUserDefaults : [String]
     var todos: [CheckListItem] = []
     
     init(){
         
         rowItem0.text = "Write your notes below!"
         todos.append(rowItem0)
+        
+        // Temporary DEBUG: Uncomment and execute to delete User Defaults:
+        // UserDefaults.resetStandardUserDefaults()
+        
+        // Initial data load from Userdefaults:
+        // TODO: Move into a function.
+        test_rowItemFromUserDefaults = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
+        for i in test_rowItemFromUserDefaults {
+            let item = CheckListItem()
+            item.text = i
+            todos.append(item)
+        }
     }
     
     func newTodoItem() -> CheckListItem {
@@ -26,8 +40,17 @@ class TodoList {
         return item
     }
     
+    /// Saves to UserDefaults
+    /// - Parameter item: TODO item.
+    func saveTodoItem(item: CheckListItem){
+        
+        test_rowItemFromUserDefaults.append(item.text)
+        UserDefaults.standard.setValue(test_rowItemFromUserDefaults, forKey: "SavedData")
+        
+    }
+    
     func move(item: CheckListItem, to index: Int){
-        guard let currentIndex = todos.index(of: item) else { return }
+        guard let currentIndex = todos.firstIndex(of: item) else { return }
         todos.remove(at: currentIndex) // remove from previous loc
         todos.insert(item, at: index) // add to new loc
     }

@@ -18,7 +18,7 @@ protocol AddItemViewControllerDelegate: AnyObject {
     func addItemViewController(controller: ItemDetailViewController, didFinishEditing item: CheckListItem)
 }
 
-class ItemDetailViewController: UITableViewController {
+final class ItemDetailViewController: UITableViewController {
     
     weak var delegate: AddItemViewControllerDelegate?
     // Passing data between views:
@@ -52,6 +52,7 @@ class ItemDetailViewController: UITableViewController {
                 }
                 item.checked = false
                 delegate?.addItemViewController(controller: self, didFinishAdding: item)
+                todoList?.saveTodoItem(item: item)
             }
         }
     }
