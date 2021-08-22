@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CheckListItem: NSObject {
+final class CheckListItem: NSObject, Codable {
     
     //@IBOutlet weak var textField: UITextField!
     var text = ""

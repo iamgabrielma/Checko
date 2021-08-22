@@ -18,7 +18,7 @@ final class CheckListViewController: UITableViewController {
     @IBAction func addItem(_ sender: Any) {
         
         let newRowIndex = todoList.todos.count
-        _ = todoList.newTodoItem()
+        let item = todoList.newTodoItem()
         //_ = todoList.setRandomItem()
         let indexPath = IndexPath(row: newRowIndex, section: 0 )
         let indexPaths = [indexPath]

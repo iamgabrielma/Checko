@@ -52,6 +52,7 @@ final class ItemDetailViewController: UITableViewController {
                 }
                 item.checked = false
                 delegate?.addItemViewController(controller: self, didFinishAdding: item)
+                todoList?.saveTodoItem(item: item)
             }
         }
     }
