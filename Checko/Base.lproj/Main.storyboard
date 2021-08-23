@@ -73,11 +73,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="CW1-hW-SEu">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pM5-VP-rNo">
-                            <connections>
-                                <segue destination="XCH-rZ-i6k" kind="show" identifier="addItemSegue" id="YrZ-iC-NuH"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="pM5-VP-rNo">
+                                <connections>
+                                    <segue destination="XCH-rZ-i6k" kind="show" identifier="addItemSegue" id="YrZ-iC-NuH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Clear all" id="Yjq-Qs-PEn">
+                                <connections>
+                                    <action selector="clearAll:" destination="SjD-Kx-RPe" id="9hR-E4-kcc"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDr-vc-O2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

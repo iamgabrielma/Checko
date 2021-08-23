@@ -27,6 +27,19 @@ final class CheckListViewController: UITableViewController {
         
     }
     
+    @IBAction func clearAll(_ sender: Any) {
+          
+        // Deletes all data from UserPredefs
+        todoList.clearTodoList()
+        // Needs to also update the rows:
+//        let existingRowIndex = todoList.todos.count
+//        let indexPath = IndexPath(row: existingRowIndex, section: 0 )
+//        let indexPaths = [indexPath]
+//
+//        tableView.deleteRows(at: indexPaths, with: .automatic)
+//        tableView.reloadData()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
 
         todoList = TodoList()
@@ -61,7 +74,7 @@ final class CheckListViewController: UITableViewController {
         let item = todoList.todos[indexPath.row]
         
         configureText(cell: cell, with: item)
-        configureTimestamp(cell: cell, with: item)
+        //configureTimestamp(cell: cell, with: item)
         
         return cell
     }
@@ -119,7 +132,8 @@ final class CheckListViewController: UITableViewController {
         
         if let timestampedCell = cell as? CheckListTableViewCell {
             //timestampedCell.itemTimestamp.text = String(NSDate().timeIntervalSince1970)
-            timestampedCell.itemTimestamp.text = String("\(item.timeRemaining):00h")
+            //timestampedCell.itemTimestamp.text = String("\(item.timeRemaining):00h")
+            print("Nothing for now :) ")
         }
     
     }

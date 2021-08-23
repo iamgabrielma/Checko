@@ -12,7 +12,6 @@ final class TodoList {
     
     var initialRowItem = CheckListItem()
     var rowItemInUserDefaults : [String]
-    var rowItemsInUserDefaults : [String: Int]
     // Our TODO list
     var todos: [CheckListItem] = []
     
@@ -21,9 +20,6 @@ final class TodoList {
         initialRowItem.text = "Write your notes below! You can add up to 5 tasks"
         todos.append(initialRowItem)
         
-        // Temporary DEBUG: Uncomment and execute to delete User Defaults:
-        // UserDefaults.resetStandardUserDefaults()
-        
         // Initial data load from UserDefaults:
         rowItemInUserDefaults = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
         for i in rowItemInUserDefaults {
@@ -31,9 +27,6 @@ final class TodoList {
             item.text = i
             todos.append(item)
         }
-        
-        // Initial data load from Tuple UserDefaults:
-        rowItemsInUserDefaults = UserDefaults.standard.array(forKey: "Newdata") as? [String: Int] ?? ["" : 0]
     }
     
     func newTodoItem() -> CheckListItem {
@@ -50,8 +43,6 @@ final class TodoList {
         
         rowItemInUserDefaults.append(item.text)
         UserDefaults.standard.setValue(rowItemInUserDefaults, forKey: "SavedData")
-        // Trying alternative TUPLE:
-        UserDefaults.standard.setValue([item.text, 24], forKey: "TupleData")
         
     }
     
@@ -61,14 +52,14 @@ final class TodoList {
         todos.insert(item, at: index) // add to new loc
     }
     
-//    func setRandomItem() -> CheckListItem {
-//
-//        let item = CheckListItem()
-//        let itemsArray = ["this", "is", "a", "random", "array"]
-//        let randomIndex = Int.random(in: 1..<itemsArray.count)
-//        item.text = itemsArray[randomIndex]
-//        item.checked = false
-//        todos.append(item)
-//        return item
-//    }
+    func clearTodoList(){
+        
+        //let allItems = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
+        let allItems = UserDefaults.standard
+        //let keyValue = allItems.stringArray(forKey: "SavedData")
+        allItems.removeObject(forKey: "SavedData")
+//        for i in allItems {
+//            i.remove
+//        }
+    }
 }
