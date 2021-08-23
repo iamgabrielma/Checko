@@ -7,24 +7,40 @@
 
 import UIKit
 
-/// <#Description#>
+/// Description
 final class CheckListViewController: UITableViewController {
     
     /// Our TodoList object. Holds all TodoItems
     var todoList: TodoList
+    let maxItemsAllowed = 5
     
     /// Adds an item to our TODO list object
     /// - Parameter sender: The "+" button on UI
     @IBAction func addItem(_ sender: Any) {
         
         let newRowIndex = todoList.todos.count
-        let item = todoList.newTodoItem()
-        //_ = todoList.setRandomItem()
-        let indexPath = IndexPath(row: newRowIndex, section: 0 )
-        let indexPaths = [indexPath]
-        
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        
+        if newRowIndex >= maxItemsAllowed {
+            return
+        } else {
+            todoList.newTodoItem()
+            let indexPath = IndexPath(row: newRowIndex, section: 0 )
+            let indexPaths = [indexPath]
+            
+            tableView.insertRows(at: indexPaths, with: .automatic)
+        }
+    }
+    
+    @IBAction func clearAll(_ sender: Any) {
+          
+        // Deletes all data from UserPredefs
+        todoList.clearTodoList()
+        // Needs to also update the rows:
+        // TODO: Fatal error: *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'attempt to delete row 2 from section 0 which only contains 2 rows before the update'
+//        let existingRowIndex = todoList.todos.count
+//        let indexPath = IndexPath(row: existingRowIndex, section: 0 )
+//        let indexPaths = [indexPath]
+//        tableView.deleteRows(at: indexPaths, with: .automatic)
+//        tableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +55,8 @@ final class CheckListViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        // Timer functions
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -59,7 +77,7 @@ final class CheckListViewController: UITableViewController {
         let item = todoList.todos[indexPath.row]
         
         configureText(cell: cell, with: item)
-        configureCheckMark(cell: cell, with: item)
+        //configureTimestamp(cell: cell, with: item)
         
         return cell
     }
@@ -69,7 +87,6 @@ final class CheckListViewController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath){
             let item = todoList.todos[indexPath.row]
             item.toggleChecked()
-            configureCheckMark(cell: cell, with: item)
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -108,23 +125,20 @@ final class CheckListViewController: UITableViewController {
     
     func configureText(cell: UITableViewCell, with item: CheckListItem){
         
-        if let checkMarkCell = cell as? CheckListTableViewCell {
-            checkMarkCell.todoTextLabel.text = item.text
+        if let textCell = cell as? CheckListTableViewCell {
+            textCell.todoTextLabel.text = item.text
         }
     }
+
+    func configureTimestamp(cell: UITableViewCell, with item: CheckListItem){
+        
+        
+        if let timestampedCell = cell as? CheckListTableViewCell {
+            //timestampedCell.itemTimestamp.text = String(NSDate().timeIntervalSince1970)
+            //timestampedCell.itemTimestamp.text = String("\(item.timeRemaining):00h")
+            print("Nothing for now :) ")
+        }
     
-    func configureCheckMark(cell: UITableViewCell, with item: CheckListItem){
-        
-        guard let checkMarkCell = cell as? CheckListTableViewCell else {
-            return
-        }
-        
-        if item.checked {
-            checkMarkCell.checkMarkLabel.text = "✅"
-        } else {
-            checkMarkCell.checkMarkLabel.text = ""
-        }
-        //item.toggleChecked()
     }
 }
 

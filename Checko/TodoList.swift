@@ -10,22 +10,19 @@ import Foundation
 
 final class TodoList {
     
-    var rowItem0 = CheckListItem()
-    var test_rowItemFromUserDefaults : [String]
+    var initialRowItem = CheckListItem()
+    var rowItemInUserDefaults : [String]
+    // Our TODO list
     var todos: [CheckListItem] = []
     
     init(){
         
-        rowItem0.text = "Write your notes below!"
-        todos.append(rowItem0)
+        initialRowItem.text = "Write your notes below!"
+        todos.append(initialRowItem)
         
-        // Temporary DEBUG: Uncomment and execute to delete User Defaults:
-        // UserDefaults.resetStandardUserDefaults()
-        
-        // Initial data load from Userdefaults:
-        // TODO: Move into a function.
-        test_rowItemFromUserDefaults = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
-        for i in test_rowItemFromUserDefaults {
+        // Initial data load from UserDefaults:
+        rowItemInUserDefaults = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
+        for i in rowItemInUserDefaults {
             let item = CheckListItem()
             item.text = i
             todos.append(item)
@@ -44,8 +41,8 @@ final class TodoList {
     /// - Parameter item: TODO item.
     func saveTodoItem(item: CheckListItem){
         
-        test_rowItemFromUserDefaults.append(item.text)
-        UserDefaults.standard.setValue(test_rowItemFromUserDefaults, forKey: "SavedData")
+        rowItemInUserDefaults.append(item.text)
+        UserDefaults.standard.setValue(rowItemInUserDefaults, forKey: "SavedData")
         
     }
     
@@ -55,14 +52,14 @@ final class TodoList {
         todos.insert(item, at: index) // add to new loc
     }
     
-    func setRandomItem() -> CheckListItem {
+    func clearTodoList(){
         
-        let item = CheckListItem()
-        let itemsArray = ["this", "is", "a", "random", "array"]
-        let randomIndex = Int.random(in: 1..<itemsArray.count)
-        item.text = itemsArray[randomIndex]
-        item.checked = false
-        todos.append(item)
-        return item
+        //let allItems = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
+        let allItems = UserDefaults.standard
+        //let keyValue = allItems.stringArray(forKey: "SavedData")
+        allItems.removeObject(forKey: "SavedData")
+//        for i in allItems {
+//            i.remove
+//        }
     }
 }

@@ -9,8 +9,8 @@ import UIKit
 
 final class CheckListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var checkMarkLabel: UILabel!
     @IBOutlet weak var todoTextLabel: UILabel!
+    @IBOutlet weak var itemTimestamp: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

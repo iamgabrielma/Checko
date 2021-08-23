@@ -16,46 +16,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CheckListItem" id="7Ub-vk-EMQ" customClass="CheckListTableViewCell" customModule="Checko" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="53.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckListItem" id="7Ub-vk-EMQ" customClass="CheckListTableViewCell" customModule="Checko" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Ub-vk-EMQ" id="cCZ-Y4-dgP">
-                                    <rect key="frame" x="0.0" y="0.0" width="356" height="53.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-s5-fvs">
-                                            <rect key="frame" x="41" y="16" width="41.5" height="21.5"/>
+                                            <rect key="frame" x="5" y="12" width="348" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxB-6l-VDn">
-                                            <rect key="frame" x="0.0" y="16" width="33" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-cV-vry">
-                                            <rect key="frame" x="284" y="-2" width="83" height="56"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Edit"/>
-                                            <connections>
-                                                <segue destination="XCH-rZ-i6k" kind="show" id="swo-vC-Gmr"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="u4Q-bA-vp3">
+                                            <rect key="frame" x="358" y="-4" width="46" height="51.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-cV-vry">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                    <state key="normal" title="Edit"/>
+                                                    <connections>
+                                                        <segue destination="XCH-rZ-i6k" kind="show" id="swo-vC-Gmr"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-OJ-v2M">
+                                                    <rect key="frame" x="0.0" y="31" width="46" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" constant="41" id="473-wH-zJe"/>
-                                        <constraint firstItem="OxB-6l-VDn" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" id="5xa-D4-wb8"/>
-                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="top" secondItem="cCZ-Y4-dgP" secondAttribute="topMargin" constant="5" id="Hze-iU-JT1"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="aVN-s5-fvs" secondAttribute="bottom" constant="5" id="iTS-uU-XCZ"/>
-                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="OxB-6l-VDn" secondAttribute="trailing" constant="8" symbolic="YES" id="ms7-kG-y15"/>
-                                        <constraint firstItem="OxB-6l-VDn" firstAttribute="firstBaseline" secondItem="aVN-s5-fvs" secondAttribute="firstBaseline" id="oSh-50-AFV"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aVN-s5-fvs" secondAttribute="trailing" constant="20" symbolic="YES" id="trR-i9-VEp"/>
+                                        <constraint firstItem="u4Q-bA-vp3" firstAttribute="centerY" secondItem="cCZ-Y4-dgP" secondAttribute="centerY" id="07N-DQ-el4"/>
+                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="centerY" secondItem="cCZ-Y4-dgP" secondAttribute="centerY" id="7xW-RJ-MnG"/>
+                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" constant="5" id="Jaj-vO-H4Z"/>
+                                        <constraint firstItem="u4Q-bA-vp3" firstAttribute="leading" secondItem="aVN-s5-fvs" secondAttribute="trailing" constant="5" id="T36-Cj-jww"/>
+                                        <constraint firstAttribute="trailing" secondItem="u4Q-bA-vp3" secondAttribute="trailing" constant="10" id="mqB-4V-9Xv"/>
+                                        <constraint firstItem="aVN-s5-fvs" firstAttribute="leading" secondItem="cCZ-Y4-dgP" secondAttribute="leading" constant="5" id="oec-Ev-lk8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkMarkLabel" destination="OxB-6l-VDn" id="u1C-IZ-zWV"/>
+                                    <outlet property="itemTimestamp" destination="hgd-OJ-v2M" id="jdn-kz-gOs"/>
                                     <outlet property="todoTextLabel" destination="aVN-s5-fvs" id="8cb-iu-HP8"/>
                                 </connections>
                             </tableViewCell>
@@ -67,11 +70,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="CW1-hW-SEu">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pM5-VP-rNo">
-                            <connections>
-                                <segue destination="XCH-rZ-i6k" kind="show" identifier="addItemSegue" id="YrZ-iC-NuH"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="pM5-VP-rNo">
+                                <connections>
+                                    <segue destination="XCH-rZ-i6k" kind="show" identifier="addItemSegue" id="YrZ-iC-NuH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Clear all" id="Yjq-Qs-PEn">
+                                <connections>
+                                    <action selector="clearAll:" destination="SjD-Kx-RPe" id="9hR-E4-kcc"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDr-vc-O2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
