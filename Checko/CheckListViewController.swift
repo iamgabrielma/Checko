@@ -12,19 +12,22 @@ final class CheckListViewController: UITableViewController {
     
     /// Our TodoList object. Holds all TodoItems
     var todoList: TodoList
+    let maxItemsAllowed = 5
     
     /// Adds an item to our TODO list object
     /// - Parameter sender: The "+" button on UI
     @IBAction func addItem(_ sender: Any) {
         
         let newRowIndex = todoList.todos.count
-        let item = todoList.newTodoItem()
-        //_ = todoList.setRandomItem()
-        let indexPath = IndexPath(row: newRowIndex, section: 0 )
-        let indexPaths = [indexPath]
-        
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        
+        if newRowIndex >= maxItemsAllowed {
+            return
+        } else {
+            todoList.newTodoItem()
+            let indexPath = IndexPath(row: newRowIndex, section: 0 )
+            let indexPaths = [indexPath]
+            
+            tableView.insertRows(at: indexPaths, with: .automatic)
+        }
     }
     
     @IBAction func clearAll(_ sender: Any) {
@@ -32,10 +35,10 @@ final class CheckListViewController: UITableViewController {
         // Deletes all data from UserPredefs
         todoList.clearTodoList()
         // Needs to also update the rows:
+        // TODO: Fatal error: *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'attempt to delete row 2 from section 0 which only contains 2 rows before the update'
 //        let existingRowIndex = todoList.todos.count
 //        let indexPath = IndexPath(row: existingRowIndex, section: 0 )
 //        let indexPaths = [indexPath]
-//
 //        tableView.deleteRows(at: indexPaths, with: .automatic)
 //        tableView.reloadData()
     }

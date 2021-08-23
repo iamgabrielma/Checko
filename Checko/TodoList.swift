@@ -17,7 +17,7 @@ final class TodoList {
     
     init(){
         
-        initialRowItem.text = "Write your notes below! You can add up to 5 tasks"
+        initialRowItem.text = "Write your notes below!"
         todos.append(initialRowItem)
         
         // Initial data load from UserDefaults:
