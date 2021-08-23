@@ -11,22 +11,29 @@ import Foundation
 final class TodoList {
     
     var initialRowItem = CheckListItem()
-    var rowItemInUserDefaults : [String]
+    var storedDataInUserDefaults : [[String]]
+    var savedElement: [String]
     // Our TODO list
     var todos: [CheckListItem] = []
     
     init(){
         
         initialRowItem.text = "Write your notes below!"
+        initialRowItem.timestamp = "2021-08-23 19:48:37"
         todos.append(initialRowItem)
         
         // Initial data load from UserDefaults:
-        rowItemInUserDefaults = UserDefaults.standard.stringArray(forKey:"SavedData") ?? []
-        for i in rowItemInUserDefaults {
+        storedDataInUserDefaults = UserDefaults.standard.array(forKey:"SavedData") as? [[String]] ?? [["", ""]]
+        print("Init() Load contents of current list: \(storedDataInUserDefaults)")
+        
+        for eachItem in storedDataInUserDefaults {
             let item = CheckListItem()
-            item.text = i
+            item.text = eachItem[0] // Note
+            item.timestamp = eachItem[1] // Timestamp
             todos.append(item)
         }
+        // WIP:
+        savedElement = ["", ""]
     }
     
     func newTodoItem() -> CheckListItem {
@@ -41,8 +48,25 @@ final class TodoList {
     /// - Parameter item: TODO item.
     func saveTodoItem(item: CheckListItem){
         
-        rowItemInUserDefaults.append(item.text)
-        UserDefaults.standard.setValue(rowItemInUserDefaults, forKey: "SavedData")
+        // Each CheckListItem has 2 parts, the String that is saved as a note, and a timestamp:
+        let timestamp = Date()
+        let dateFormatter = DateFormatter()
+        
+        // 1 -
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        item.timestamp = dateFormatter.string(from: timestamp)
+        
+        // 2 - Assign note & timestamp:
+        savedElement[0] = item.text
+        savedElement[1] = item.timestamp
+        
+        // DEBUG
+        print("Saving item: \(savedElement)")
+        print("Contents of current list: \(storedDataInUserDefaults)")
+        
+        // 3 - Saving to memory
+        storedDataInUserDefaults.append(savedElement)
+        UserDefaults.standard.setValue(storedDataInUserDefaults, forKey: "SavedData")
         
     }
     

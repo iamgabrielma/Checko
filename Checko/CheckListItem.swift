@@ -11,12 +11,12 @@ final class CheckListItem: NSObject {
     
     //@IBOutlet weak var textField: UITextField!
     var text = ""
-    var checked = false
+    //var checked = false
     //let timeRemaining = 24
-    //let timestamp = Date()
+    var timestamp = ""
 
     /// Description
-    func toggleChecked() {
-        checked = !checked
-    }
+//    func toggleChecked() {
+//        checked = !checked
+//    }
 }

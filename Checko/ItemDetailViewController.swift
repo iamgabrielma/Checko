@@ -50,7 +50,7 @@ final class ItemDetailViewController: UITableViewController {
                 if let textFieldText = textField.text {
                     item.text = textFieldText
                 }
-                item.checked = false
+                //item.checked = false deprecated
                 delegate?.addItemViewController(controller: self, didFinishAdding: item)
                 todoList?.saveTodoItem(item: item)
             }

@@ -86,7 +86,7 @@ final class CheckListViewController: UITableViewController {
         
         if let cell = tableView.cellForRow(at: indexPath){
             let item = todoList.todos[indexPath.row]
-            item.toggleChecked()
+            //item.toggleChecked() deprecated.
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
