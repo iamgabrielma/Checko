@@ -105,7 +105,18 @@ final class TodoList {
         print("delta:")
         print(delta) // <-- Solved, in seconds.
         
-        return .far
+        // Now that I have a delta, I can return different styles:
+        // 24h = 86400 seconds.
+        if delta >= 80000 {
+            return .far
+        }
+        else if delta < 80000 && delta > 40000 {
+            return .medium
+        }
+        else {
+            return .close
+        }
+        //return .far
         
         
         //print("Time now is: \(currentTime)")"

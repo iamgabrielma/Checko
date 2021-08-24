@@ -148,7 +148,19 @@ final class CheckListViewController: UITableViewController {
         
         if let cell = cell as? CheckListTableViewCell {
             if todoList.checkRemainingTime(item: item) == .far {
-                cell.backgroundColor = .lightGray
+                cell.backgroundColor = .systemGray2
+            }
+            else if todoList.checkRemainingTime(item: item) == .medium {
+                cell.backgroundColor = .systemGray3
+            }
+            else if todoList.checkRemainingTime(item: item) == .close {
+                cell.backgroundColor = .systemGray4
+            }
+            else if todoList.checkRemainingTime(item: item) == .closest {
+                cell.backgroundColor = .systemGray5
+            }
+            else {
+                cell.backgroundColor = .white
             }
         }
         //let currentTime = Constants.currentTime
