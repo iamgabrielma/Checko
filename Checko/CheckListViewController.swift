@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import simd
 
 /// Description
 final class CheckListViewController: UITableViewController {
@@ -34,13 +35,8 @@ final class CheckListViewController: UITableViewController {
           
         // Deletes all data from UserPredefs
         todoList.clearTodoList()
-        // Needs to also update the rows:
-        // TODO: Fatal error: *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'attempt to delete row 2 from section 0 which only contains 2 rows before the update'
-//        let existingRowIndex = todoList.todos.count
-//        let indexPath = IndexPath(row: existingRowIndex, section: 0 )
-//        let indexPaths = [indexPath]
-//        tableView.deleteRows(at: indexPaths, with: .automatic)
-//        tableView.reloadData()
+        // TODO: Needs to also update the TableView and rows:
+        tableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,8 +51,6 @@ final class CheckListViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        // Timer functions
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -77,16 +71,16 @@ final class CheckListViewController: UITableViewController {
         let item = todoList.todos[indexPath.row]
         
         configureText(cell: cell, with: item)
-        //configureTimestamp(cell: cell, with: item)
+        configureTimestamp(cell: cell, with: item)
+        configureCellStyle(cell: cell, with: item)
         
         return cell
     }
     /// Overrides didSelectRowAt: Tells the delegate a row is selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.cellForRow(at: indexPath){
-            let item = todoList.todos[indexPath.row]
-            item.toggleChecked()
+        if tableView.cellForRow(at: indexPath) != nil{
+            _ = todoList.todos[indexPath.row]
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -134,11 +128,31 @@ final class CheckListViewController: UITableViewController {
         
         
         if let timestampedCell = cell as? CheckListTableViewCell {
-            //timestampedCell.itemTimestamp.text = String(NSDate().timeIntervalSince1970)
-            //timestampedCell.itemTimestamp.text = String("\(item.timeRemaining):00h")
-            print("Nothing for now :) ")
+            timestampedCell.itemTimestamp.text = item.timestampString
+            
         }
     
+    }
+    // Configures the cell style based on the remaining time from a CheckListItem
+    func configureCellStyle(cell: UITableViewCell, with item: CheckListItem){
+        
+        if let cell = cell as? CheckListTableViewCell {
+            if todoList.checkRemainingTime(item: item) == .far {
+                cell.backgroundColor = .white
+            }
+            else if todoList.checkRemainingTime(item: item) == .medium {
+                cell.backgroundColor = .systemYellow
+            }
+            else if todoList.checkRemainingTime(item: item) == .close {
+                cell.backgroundColor = .systemOrange
+            }
+            else if todoList.checkRemainingTime(item: item) == .closest {
+                cell.backgroundColor = .systemRed
+            }
+            else {
+                cell.backgroundColor = .systemGray2
+            }
+        }
     }
 }
 
