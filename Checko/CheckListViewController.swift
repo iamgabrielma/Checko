@@ -35,13 +35,8 @@ final class CheckListViewController: UITableViewController {
           
         // Deletes all data from UserPredefs
         todoList.clearTodoList()
-        // Needs to also update the rows:
-        // TODO: Fatal error: *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'attempt to delete row 2 from section 0 which only contains 2 rows before the update'
-//        let existingRowIndex = todoList.todos.count
-//        let indexPath = IndexPath(row: existingRowIndex, section: 0 )
-//        let indexPaths = [indexPath]
-//        tableView.deleteRows(at: indexPaths, with: .automatic)
-//        tableView.reloadData()
+        // TODO: Needs to also update the TableView and rows:
+        tableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,8 +51,6 @@ final class CheckListViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        // Timer functions
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -86,9 +79,8 @@ final class CheckListViewController: UITableViewController {
     /// Overrides didSelectRowAt: Tells the delegate a row is selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.cellForRow(at: indexPath){
-            let item = todoList.todos[indexPath.row]
-            //item.toggleChecked() deprecated.
+        if tableView.cellForRow(at: indexPath) != nil{
+            _ = todoList.todos[indexPath.row]
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -137,63 +129,30 @@ final class CheckListViewController: UITableViewController {
         
         if let timestampedCell = cell as? CheckListTableViewCell {
             timestampedCell.itemTimestamp.text = item.timestampString
-            //timestampedCell.itemTimestamp.text = String(NSDate().timeIntervalSince1970)
-            //timestampedCell.itemTimestamp.text = String("\(item.timeRemaining):00h")
             
         }
     
     }
-    
+    // Configures the cell style based on the remaining time from a CheckListItem
     func configureCellStyle(cell: UITableViewCell, with item: CheckListItem){
         
         if let cell = cell as? CheckListTableViewCell {
             if todoList.checkRemainingTime(item: item) == .far {
-                cell.backgroundColor = .systemGray2
-            }
-            else if todoList.checkRemainingTime(item: item) == .medium {
-                cell.backgroundColor = .systemGray3
-            }
-            else if todoList.checkRemainingTime(item: item) == .close {
-                cell.backgroundColor = .systemGray4
-            }
-            else if todoList.checkRemainingTime(item: item) == .closest {
-                cell.backgroundColor = .systemGray5
-            }
-            else {
                 cell.backgroundColor = .white
             }
+            else if todoList.checkRemainingTime(item: item) == .medium {
+                cell.backgroundColor = .systemYellow
+            }
+            else if todoList.checkRemainingTime(item: item) == .close {
+                cell.backgroundColor = .systemOrange
+            }
+            else if todoList.checkRemainingTime(item: item) == .closest {
+                cell.backgroundColor = .systemRed
+            }
+            else {
+                cell.backgroundColor = .systemGray2
+            }
         }
-        //let currentTime = Constants.currentTime
-        //print("Current time: \(Constants.currentTime)")
-        /* UTC
-         Current time: 2021-08-24 08:19:30 +0000
-         Current time: 2021-08-24 08:19:30 +0000
-         Current time: 2021-08-24 08:19:30 +0000
-         **/
-        //let dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        //dateFormatter.dateFormat = "MM-dd HH:mm"
-        //item.timestampString = dateFormatter.string(from: currentTime)
-        //let now = dateFormatter.string(from: currentTime)
-        //print(item.timestampString)
-        /*
-         08-24 10:34
-         08-24 10:34
-         08-24 10:34
-         */
-        
-        //if let cell = cell as? CheckListTableViewCell {
-            //let timeDiff = currentTime.timeIntervalSince(item.timestamp)
-            //print(timeDiff)
-            // wut 0.34887802600860596
-            //let fmt = ISO8601DateFormatter()
-            // TODO: Need to go back and change these to use this format instead:
-            //guard let fromDate = fmt.date(from: item.timestampString) else { return }
-            //guard let toDate = fmt.date(from: now) else { return }
-            //let diffComponents = Calendar.current.dateComponents([.hour, .minute], from: fromDate, to: toDate)
-            //print("Time diff: \(diffComponents)")
-        //}
-        
     }
 }
 

@@ -12,5 +12,4 @@ final class CheckListItem: NSObject {
     var text = ""
     var objectCreationTimestamp: Date?
     var timestampString = ""
-
 }

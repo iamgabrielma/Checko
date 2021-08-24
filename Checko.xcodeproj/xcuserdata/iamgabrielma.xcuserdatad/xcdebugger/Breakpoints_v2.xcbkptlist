@@ -30,8 +30,8 @@
             filePath = "Checko/CheckListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "addItemViewController(controller:didFinishAdding:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Checko/CheckListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "addItemViewController(controller:didFinishAdding:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -65,22 +65,6 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "done(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "843150D1-4E51-42E4-9E08-02738CD39C73"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Checko/CheckListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "configureTimestamp(cell:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

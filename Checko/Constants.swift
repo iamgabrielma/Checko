@@ -12,12 +12,17 @@ class Constants {
     static var currentTime = Date()
     static var currentTimeString = ""
     
+    // Timeintervals are typealias of Doubles:
+    static let dayInSeconds = 86400.00
+    static let farWarning = 80000.00
+    static let mediumWarning = 40000.00
+    static let closeWarning = 20000.00
+    static let closestWarning = 5000.00
+
     init() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         Constants.currentTimeString = dateFormatter.string(from: Constants.currentTime)
-        
-        //print("Current time string: \(Constants.currentTimeString)")
     }
 
 }
