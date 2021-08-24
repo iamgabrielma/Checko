@@ -9,15 +9,8 @@ import Foundation
 
 final class CheckListItem: NSObject {
     
-    //@IBOutlet weak var textField: UITextField!
     var text = ""
-    //var checked = false
-    //let timeRemaining = 24
-    var timestamp = Date()
+    var objectCreationTimestamp: Date?
     var timestampString = ""
 
-    /// Description
-//    func toggleChecked() {
-//        checked = !checked
-//    }
 }
