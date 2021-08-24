@@ -19,7 +19,7 @@ final class TodoList {
     init(){
         
         initialRowItem.text = "Write your notes below!"
-        initialRowItem.timestamp = "2021-08-23 19:48:37"
+        initialRowItem.timestampString = "2021-08-23 19:48:37"
         todos.append(initialRowItem)
         
         // Initial data load from UserDefaults:
@@ -29,7 +29,7 @@ final class TodoList {
         for eachItem in storedDataInUserDefaults {
             let item = CheckListItem()
             item.text = eachItem[0] // Note
-            item.timestamp = eachItem[1] // Timestamp
+            item.timestampString = eachItem[1] // Timestamp
             todos.append(item)
         }
         // WIP:
@@ -51,14 +51,18 @@ final class TodoList {
         // Each CheckListItem has 2 parts, the String that is saved as a note, and a timestamp:
         let timestamp = Date()
         let dateFormatter = DateFormatter()
+        let deadline = timestamp.addingTimeInterval(86400) // 86400 seconds in 1 day.
+        // 1 - Format the I/O and pass the deadline to each item:
+        //dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "MM-dd HH:mm"
+        //item.timestamp = dateFormatter.string(from: timestamp)
+        item.timestampString = dateFormatter.string(from: deadline)
         
-        // 1 -
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        item.timestamp = dateFormatter.string(from: timestamp)
+        
         
         // 2 - Assign note & timestamp:
         savedElement[0] = item.text
-        savedElement[1] = item.timestamp
+        savedElement[1] = item.timestampString
         
         // DEBUG
         print("Saving item: \(savedElement)")

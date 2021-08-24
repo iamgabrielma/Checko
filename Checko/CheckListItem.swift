@@ -13,7 +13,8 @@ final class CheckListItem: NSObject {
     var text = ""
     //var checked = false
     //let timeRemaining = 24
-    var timestamp = ""
+    var timestamp = Date()
+    var timestampString = ""
 
     /// Description
 //    func toggleChecked() {

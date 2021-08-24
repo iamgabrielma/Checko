@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import simd
 
 /// Description
 final class CheckListViewController: UITableViewController {
@@ -77,7 +78,8 @@ final class CheckListViewController: UITableViewController {
         let item = todoList.todos[indexPath.row]
         
         configureText(cell: cell, with: item)
-        //configureTimestamp(cell: cell, with: item)
+        configureTimestamp(cell: cell, with: item)
+        configureCellStyle(cell: cell, with: item)
         
         return cell
     }
@@ -134,11 +136,46 @@ final class CheckListViewController: UITableViewController {
         
         
         if let timestampedCell = cell as? CheckListTableViewCell {
+            timestampedCell.itemTimestamp.text = item.timestampString
             //timestampedCell.itemTimestamp.text = String(NSDate().timeIntervalSince1970)
             //timestampedCell.itemTimestamp.text = String("\(item.timeRemaining):00h")
-            print("Nothing for now :) ")
+            
         }
     
+    }
+    
+    func configureCellStyle(cell: UITableViewCell, with item: CheckListItem){
+        
+        let currentTime = Constants.currentTime
+        //print("Current time: \(Constants.currentTime)")
+        /* UTC
+         Current time: 2021-08-24 08:19:30 +0000
+         Current time: 2021-08-24 08:19:30 +0000
+         Current time: 2021-08-24 08:19:30 +0000
+         **/
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd HH:mm"
+        item.timestampString = dateFormatter.string(from: currentTime)
+        
+        //print(item.timestampString)
+        /*
+         08-24 10:34
+         08-24 10:34
+         08-24 10:34
+         */
+        
+        if let _ = cell as? CheckListTableViewCell {
+            //let timeDiff = currentTime.timeIntervalSince(item.timestamp)
+            //print(timeDiff)
+            // wut 0.34887802600860596
+            let fmt = ISO8601DateFormatter()
+            // TODO: Need to go back and change these to use this format instead:
+            let date1 = fmt.date(from: "2017-08-06T19:20:42+0000")!
+            let date2 = fmt.date(from: "2017-09-06T19:20:42+0000")!
+            let diffComponents = Calendar.current.dateComponents([.hour, .minute], from: date1, to: date2)
+            print(diffComponents) // hour: 744 minute: 0 isLeapMonth: false
+        }
+        
     }
 }
 
