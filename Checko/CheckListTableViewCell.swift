@@ -14,6 +14,8 @@ final class CheckListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // WIP: Disallow editing
+        itemTimestamp.isHidden = true
         // Initialization code
     }
 

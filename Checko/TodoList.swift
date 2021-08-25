@@ -20,7 +20,7 @@ final class TodoList {
     
     init(){
         
-        initialRowItem.text = "Write your notes below!"
+        initialRowItem.text = "Quick Stats go here"
         initialRowItem.timestampString = "2021-08-23 19:48:37"
         todos.append(initialRowItem)
         
