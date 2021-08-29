@@ -3,10 +3,12 @@
 
 An iOS TODO app specially done for procastinators, shame will follow you forever if the task is not finished in time. Tasks cannot be deleted, there's a limited amount of tasks you can add, and you only have 24 hours to complete them. Developed with UIKit. 
 
+*I'm the Reminder of Shame :tm: and I'm here to make you feel miserable every day. What did you accomplish last day? I'm expecting you to at least feel a little embarrassed if you didn't do anything. And that's precisely my food: your suffering.*
+
 ### Screenshots
 ----------------
 
-WIP
+![](https://tilcode.blog/wp-content/uploads/2021/08/Simulator-Screen-Recording-iPod-touch-7th-generation-2021-08-25-at-12.30.46.gif)
 
 ### Table of Contents
 ---------------------
@@ -29,12 +31,12 @@ WIP
 * UIKit
 * UserDefaults for data storage
 * TableViews
+* Calendars, Dates, and DateFormatters
 
 
 ### What have I learned
 --------------------
-
-WIP
+* Dates and timezones are hard, no matter the language.
 
 ### Author Info
 -------------------------

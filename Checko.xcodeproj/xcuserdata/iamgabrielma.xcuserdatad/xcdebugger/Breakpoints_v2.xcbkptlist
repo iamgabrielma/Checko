@@ -30,8 +30,8 @@
             filePath = "Checko/CheckListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "addItemViewController(controller:didFinishAdding:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Checko/CheckListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "addItemViewController(controller:didFinishAdding:)"
             landmarkType = "7">
          </BreakpointContent>

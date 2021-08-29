@@ -24,23 +24,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-s5-fvs">
-                                            <rect key="frame" x="5" y="12" width="348" height="20"/>
+                                            <rect key="frame" x="5" y="11.5" width="348" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="u4Q-bA-vp3">
-                                            <rect key="frame" x="358" y="-4" width="46" height="51.5"/>
+                                            <rect key="frame" x="358" y="11.5" width="46" height="20.5"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-cV-vry">
-                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-cV-vry">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="0.0"/>
                                                     <state key="normal" title="Edit"/>
                                                     <connections>
                                                         <segue destination="XCH-rZ-i6k" kind="show" id="swo-vC-Gmr"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-OJ-v2M">
-                                                    <rect key="frame" x="0.0" y="31" width="46" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -70,21 +70,28 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="CW1-hW-SEu">
                         <nil key="title"/>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="pM5-VP-rNo">
-                                <connections>
-                                    <segue destination="XCH-rZ-i6k" kind="show" identifier="addItemSegue" id="YrZ-iC-NuH"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Clear all" id="Yjq-Qs-PEn">
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="trash" id="Yjq-Qs-PEn">
                                 <connections>
                                     <action selector="clearAll:" destination="SjD-Kx-RPe" id="9hR-E4-kcc"/>
                                 </connections>
                             </barButtonItem>
-                        </rightBarButtonItems>
+                            <barButtonItem systemItem="organize" id="hgg-c9-gy9" userLabel="Graveyard">
+                                <connections>
+                                    <action selector="checkItemGraveyard:" destination="Ax1-4M-5Rd" id="DfX-bT-k0Q"/>
+                                    <segue destination="3vh-gr-H0p" kind="show" identifier="showItemsGraveyard" id="LAN-pb-Ygl"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pM5-VP-rNo">
+                            <connections>
+                                <segue destination="XCH-rZ-i6k" kind="show" identifier="addItemSegue" id="YrZ-iC-NuH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDr-vc-O2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ax1-4M-5Rd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="704.34782608695662" y="60.9375"/>
         </scene>
@@ -150,6 +157,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFc-AU-y3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1508.6956521739132" y="75"/>
+        </scene>
+        <!--Failed Items View Controller-->
+        <scene sceneID="TI6-JY-1iR">
+            <objects>
+                <tableViewController id="3vh-gr-H0p" userLabel="Failed Items View Controller" customClass="GraveyardViewController" customModule="Checko" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="m9P-St-6gb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenericCell" id="iVn-fM-WLc">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iVn-fM-WLc" id="HrR-di-nwB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3vh-gr-H0p" id="9Oz-k2-bgw"/>
+                            <outlet property="delegate" destination="3vh-gr-H0p" id="Art-8o-cIP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hUz-35-jQR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxi-D1-2bT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1509" y="-587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HO5-a5-lvS">

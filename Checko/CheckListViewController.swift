@@ -50,13 +50,14 @@ final class CheckListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = editButtonItem
+        // WIP: Disallow editing
+        //navigationItem.leftBarButtonItem = editButtonItem
     }
-
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: true)
-        tableView.setEditing(tableView.isEditing, animated: true)
-    }
+// WIP: Disallow editing
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: true)
+//        tableView.setEditing(tableView.isEditing, animated: true)
+//    }
     /// Overrides numberOfRowsInSection
     /// - Returns: The number of rows in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,18 +104,27 @@ final class CheckListViewController: UITableViewController {
                 addItemViewController.delegate = self
                 addItemViewController.todoList = todoList
             }
-        } else if segue.identifier == "editItemSegue" {
-            if let addItemViewController = segue.destination as? ItemDetailViewController {
-                // We can get this from the sender, as is the object that was tapped:
-                if let cell = sender as? UITableViewCell,
-                    // now we know where the user taps
-                    let indexPath = tableView.indexPath(for: cell){
-                        let item = todoList.todos[indexPath.row]
-                    addItemViewController.itemToEdit = item
-                    addItemViewController.delegate = self
-                    }
-                }
+        }
+        else if segue.identifier == "showItemsGraveyard" {
+            
+            if let controller = segue.destination as? GraveyardViewController {
+                // I should show there the "graveyard items"
             }
+            
+        }
+// WIP: Disallow editing
+//        else if segue.identifier == "editItemSegue" {
+//            if let addItemViewController = segue.destination as? ItemDetailViewController {
+//                // We can get this from the sender, as is the object that was tapped:
+//                if let cell = sender as? UITableViewCell,
+//                    // now we know where the user taps
+//                    let indexPath = tableView.indexPath(for: cell){
+//                        let item = todoList.todos[indexPath.row]
+//                    addItemViewController.itemToEdit = item
+//                    addItemViewController.delegate = self
+//                    }
+//                }
+//            }
         }
     
     func configureText(cell: UITableViewCell, with item: CheckListItem){
@@ -137,6 +147,13 @@ final class CheckListViewController: UITableViewController {
     func configureCellStyle(cell: UITableViewCell, with item: CheckListItem){
         
         if let cell = cell as? CheckListTableViewCell {
+            
+            // General styles:
+            //cell.layer.cornerRadius = 5
+            cell.layer.borderWidth = 2
+            cell.layer.shadowOffset = CGSize(width: -1, height: 1)
+            
+            // Background color based on how far is from expiration:
             if todoList.checkRemainingTime(item: item) == .far {
                 cell.backgroundColor = .white
             }
